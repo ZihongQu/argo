@@ -7,6 +7,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
+      environment:
+        description: 'Define env name'     
+        required: true
+        default: 'prod'
       branch:
         description: 'Define branch name'     
         required: true
@@ -18,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
+        echo "Env: ${{ github.event.inputs.environment }}" 
         echo "Branch: ${{ github.event.inputs.branch }}"
     - name: start minikube
       id: minikube
