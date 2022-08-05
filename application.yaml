@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: dev
   destination:
-    server: https://kubermetes.default.svc
+    server: https://kubernetes.default.svc
     namespace: my-argo-app
   syncPolicy:
     syncOptions:
