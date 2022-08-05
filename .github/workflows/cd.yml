@@ -25,7 +25,7 @@ jobs:
       uses: medyagh/setup-minikube@master
     - name: Deploy to minikube
       run:
-        cat dev/node-app-depl.yaml | VERSION=${{github.event.inputs.version}} | kubectl apply -f -
+        cat /dev/node-app-depl.yaml | VERSION=${{github.event.inputs.version}} | kubectl apply -f /dev/node-app-depl.yaml
     - name: Interact with the cluster
       run: kubectl get pods
     - name: Interact with the cluster
