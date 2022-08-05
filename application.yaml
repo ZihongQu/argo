@@ -12,7 +12,7 @@ spec:
   destination:
     server: https://kubermetes.default.svc
     namespace: my-argo-app
-  SyncPolicy:
+  syncPolicy:
     syncOptions:
       - CreateNamespace=true
     automated:
