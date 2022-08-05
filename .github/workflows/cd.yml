@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
+        pwd
         echo "Image Version: ${{ github.event.inputs.version }}"
     - name: start minikube
       id: minikube
