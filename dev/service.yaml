@@ -6,5 +6,7 @@ spec:
   selector:
     app: server-deployment
   ports:
-    - port: 5001
+    - protocol: TCP
+      port: 5001
       targetPort: 5001
+      nodePort: 27017
