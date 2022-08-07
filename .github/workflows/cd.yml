@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CD
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Define image version'     
+        required: true
+        default: 'latest'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        pwd
+        echo "Image Version: ${{ github.event.inputs.version }}"
+    - name: start minikube
+      id: minikube
+      uses: medyagh/setup-minikube@master
+    - name: Deploy to minikube
+      run:
+        kubectl apply -f ./dev/node-app-depl.yaml
+    - name: Interact with the cluster
+      run: kubectl get pods
+    - name: Interact with the cluster
+      run: |
+        kubectl get pods
+        kubectl get service   
